@@ -1,4 +1,4 @@
-* [당근설명](CARROT.md)
+* [당근 설명](CARROT.md)
 
 Why carrot?
 ------
