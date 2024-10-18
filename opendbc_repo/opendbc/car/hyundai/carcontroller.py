@@ -279,6 +279,7 @@ class CarController(CarControllerBase):
 
       if self.last_button_frame != self.frame:
         send_button = self.make_spam_button(CC, CS)
+        print(f"send_button: {send_button}")
         if send_button > 0:
           can_sends.append(hyundaican.create_clu11_button(self.packer, self.frame, CS.clu11, send_button, self.CP))
       
