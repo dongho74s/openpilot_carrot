@@ -399,6 +399,10 @@ class CarController(CarControllerBase):
     send_button_allowed = (self.frame - self.last_button_frame) > self.button_wait
     #CC.debugTextCC = "{} speed_diff={:.1f},{:.0f}/{:.0f}, button={}, button_wait={}, count={}".format(
     #  send_button_allowed, speed_diff, target, current, send_button, self.button_wait, self.button_spamming_count)
+    debugTextCC = "{} speed_diff={:.1f},{:.0f}/{:.0f}, button={}, button_wait={}, count={}".format(
+       send_button_allowed, speed_diff, target, current, send_button, self.button_wait, self.button_spamming_count)
+    print(debugTextCC)
+
     if send_button_allowed or activate_cruise:
       self.button_spamming_count = self.button_spamming_count + 1 if Buttons.RES_ACCEL else self.button_spamming_count - 1
       return send_button
