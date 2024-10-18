@@ -528,9 +528,9 @@ class CarState(CarStateBase):
         ("CRUISE_BUTTONS", 50)
       ]
 
-    ## BSM��ȣ�� ADAS�ΰ�� BUS2�� �����ǰ�, �����ΰ�� ECAN���� ����.
-    # ����, ���� EV6: 1, 1 => True, inADAS: 1, 0 => False
-    # ����, 0, 0 => True
+    ## BSM신호가 ADAS인경우 BUS2로 개조되고, 독립인경우 ECAN에서 들어옴.
+    # 개조, 독립 EV6: 1, 1 => True, inADAS: 1, 0 => False
+    # 비개조, 0, 0 => True
     if CP.enableBsm:
       if CP.flags & HyundaiFlags.CAMERA_SCC.value and CP.extFlags & HyundaiExtFlags.BSM_IN_ADAS.value:
         pass
@@ -564,9 +564,9 @@ class CarState(CarStateBase):
     #if not (CP.flags & HyundaiFlags.CANFD_HDA2) and CP.extFlags & HyundaiExtFlags.NAVI_CLUSTER.value and (CP.extFlags & HyundaiExtFlags.SCC_BUS2.value) :
     #  messages.append(("CLUSTER_SPEED_LIMIT", 10))
 
-    ## BSM��ȣ�� ADAS�ΰ�� BUS2�� �����ǰ�, �����ΰ�� ECAN���� ����.
-    # ����, ���� EV6: 1, 1 => False, inADAS: 1, 0 => True
-    # ����, 0, 0 => False
+    ## BSM신호가 ADAS인경우 BUS2로 개조되고, 독립인경우 ECAN에서 들어옴.
+    # 개조, 독립 EV6: 1, 1 => False, inADAS: 1, 0 => True
+    # 비개조, 0, 0 => False
     if CP.enableBsm:
       if CP.flags & HyundaiFlags.CAMERA_SCC.value and CP.extFlags & HyundaiExtFlags.BSM_IN_ADAS.value:
         messages += [
