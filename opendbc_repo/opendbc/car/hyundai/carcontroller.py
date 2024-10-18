@@ -370,7 +370,7 @@ class CarController(CarControllerBase):
         send_button = Buttons.SET_DECEL
       elif target > current and current < 160 and self.speed_from_pcm != 1:
         send_button = Buttons.RES_ACCEL
-    elif CC.cruiseControl.activate:
+    elif CS.activateCruise: #CC.cruiseControl.activate:
       if (hud_control.leadVisible or v_ego_kph > 10.0) and self.activateCruise == 0:
         self.activateCruise = 1
         send_button = Buttons.RES_ACCEL
