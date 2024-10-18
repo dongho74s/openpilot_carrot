@@ -174,9 +174,9 @@ class Controls:
       if speed_from_pcm == 1:
         hudControl.setSpeed = float(CS.vCruiseCluster * CV.KPH_TO_MS)
       elif speed_from_pcm == 2:
-        hudControl.setSpeed = max(30/3.6, desired_kph * CV.KPH_TO_MS)
+        hudControl.setSpeed = float(max(30/3.6, desired_kph * CV.KPH_TO_MS))
       else:
-        hudControl.setSpeed = setSpeed
+        hudControl.setSpeed = float(max(30/3.6, setSpeed))
     else:
       hudControl.setSpeed = setSpeed if lp.xState == 3 else float(desired_kph * CV.KPH_TO_MS)
     hudControl.speedVisible = CC.enabled
